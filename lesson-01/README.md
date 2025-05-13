@@ -28,3 +28,38 @@ FastAPI is perfect when you need to:
 ```bash
 python -m venv venv
 .\venv\Scripts\activate
+```
+#### On macOS/Linux:
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+### 2. Install FastAPI and Uvicorn
+Once the virtual environment is activated, you can install `FastAPI` and `Uvicorn` (ASGI server) using `pip`.
+
+```bash
+pip install fastapi uvicorn
+```
+### 3. Verify the installation
+To ensure everything is installed correctly, you can run a simple FastAPI app.
+
+Create a new file, `main.py`, and add the following code:
+
+```python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+```
+Run the server using Uvicorn:
+```bash
+uvicorn main:app --reload
+```
+This starts the FastAPI server, and you should see output similar to this:
+
+``` bash
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+```
